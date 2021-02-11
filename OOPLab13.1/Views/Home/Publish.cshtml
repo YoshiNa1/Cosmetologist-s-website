@@ -1,0 +1,24 @@
+﻿@model OOPLab13._1.Models.Comment
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Forum</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+</head>
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <p>So, type something ...</p>
+        <p>@Html.TextAreaFor(x=>x.CommentText, 5, 50, null)</p>
+
+        <input class="button icon solid fa-file" type="submit" value="Send" />
+        <p> @Html.ActionLink("Go home <= ", "Index") | @Html.ActionLink(" <= Go Forum", "Forum")</p>
+    }
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+﻿@model OOPLab13._1.Models.LoginUser
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Log in</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+</head>
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <h1>Log in to ask the question</h1>
+        <p>Your login: @Html.TextBoxFor(x => x.Login)</p>
+        <p>Password: @Html.PasswordFor(x => x.Password)</p>
+
+        <input class="button icon solid fa-file" type="submit" value="Log in" />
+
+        <p>Not signed? @Html.ActionLink("Sign up", "Register")</p>
+    }
+</body>
+</html>

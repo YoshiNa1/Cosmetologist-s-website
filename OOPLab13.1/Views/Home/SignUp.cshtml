@@ -1,0 +1,44 @@
+﻿@model OOPLab13._1.Models.Client
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Your name and surname: @Html.TextBoxFor(x => x.Name)</p>
+        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
+
+        <p>
+            Reserve date
+            @Html.DropDownListFor(x => x.Date, new[] {
+                new SelectListItem() { Text = @DateTime.Now.AddDays(1).ToShortDateString(), Value = @DateTime.Now.AddDays(1).ToShortDateString()},
+                new SelectListItem() { Text = @DateTime.Now.AddDays(2).ToShortDateString(), Value = @DateTime.Now.AddDays(2).ToShortDateString()},
+                new SelectListItem() { Text = @DateTime.Now.AddDays(3).ToShortDateString(), Value = @DateTime.Now.AddDays(3).ToShortDateString()},
+                new SelectListItem() { Text = @DateTime.Now.AddDays(4).ToShortDateString(), Value = @DateTime.Now.AddDays(4).ToShortDateString()}
+            })
+        </p>
+        <p>
+            Reserve time
+            @Html.DropDownListFor(x => x.Time, new[] {
+                new SelectListItem() { Text = "9:00", Value = "9:00"},
+                new SelectListItem() { Text = "10:30", Value ="10:30"},
+                new SelectListItem() { Text = "12:00", Value = "12:00"},
+                new SelectListItem() { Text = "13:30", Value = "13:30"}
+            })
+        </p>
+        <p>Do you have any questions or comments?</p>
+        <p>@Html.TextArea("comment", " ", 5, 50, null)</p>
+
+        <input class="button icon solid fa-file" type="submit" value="Sign Up" />
+
+        <p>Click @Html.ActionLink("here", "ListResponses") to see reserved time.</p>
+    }
+</body>
+</html>

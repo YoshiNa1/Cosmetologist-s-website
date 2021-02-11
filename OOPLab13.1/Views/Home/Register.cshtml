@@ -1,0 +1,25 @@
+﻿@model OOPLab13._1.Models.RegisterUser
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        //<h1>Sign Up to ask the question</h1>
+        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>How do you want other users to see you? @Html.TextBoxFor(x => x.Login)</p>
+        <p>Password: @Html.PasswordFor(x => x.Password)</p>
+        <p>Confirm password: @Html.PasswordFor(x => x.ConfirmPassword)</p>
+
+        <input class="button icon solid fa-file" type="submit" value="Sign Up" />
+        <p>Already signed? @Html.ActionLink("Log in", "Login")</p>
+
+    }
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿@model List<OOPLab13._1.Models.User>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+    <title>Users</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Login</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var User in Model)
+            {
+                <tr>
+                    <td>@User.Email</td>
+                    <td>@User.Login</td>
+                    <td>@User.Password</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p> @Html.ActionLink("Go home", "Index")</p>
+</body>
+</html>

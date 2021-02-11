@@ -1,0 +1,21 @@
+﻿@model OOPLab13._1.Models.Client
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+    <title>Success reserving</title>
+</head>
+<body>
+    <div>
+        <h1>Thank you, @Model.Name!</h1>
+        <p> See You soon. The detailes sent by email!</p>
+        <p>Click @Html.ActionLink("here", "ListResponses") too see reserved time.</p>
+        <p> @Html.ActionLink("Go home", "Index")</p>
+    </div>
+</body>
+</html>

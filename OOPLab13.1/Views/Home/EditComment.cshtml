@@ -1,0 +1,25 @@
+﻿@model OOPLab13._1.Models.Comment
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Comment</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+</head>
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <p>Editing</p>
+        <p>@Html.EditorFor(x => x.Login)</p>
+        <p>@Html.EditorFor(x => x.CommentText)</p>
+        <p>@Html.EditorFor(x => x.CommentDate)</p>
+
+        <input class="button icon solid fa-file" type="submit" value="OK" />
+        <p> @Html.ActionLink("Go home <= ", "Index") | @Html.ActionLink(" <= Go Forum", "Forum")</p>
+    }
+</body>
+</html>

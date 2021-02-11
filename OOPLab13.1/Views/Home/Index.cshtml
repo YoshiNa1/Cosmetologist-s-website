@@ -1,0 +1,243 @@
+﻿@model OOPLab13._1.Models.User
+<html>
+<head runat="server">
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+
+        <!--Header-->
+        <section id="header">
+            <div class="container">
+
+                <!-- Logo -->
+                <h1 id="logo">@Html.ActionLink("Fatinia", "Index")</h1>
+                <p>Cosmetolog Swetlana Makarova</p>
+
+                <!-- Nav -->
+                <nav id="nav">
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p style="text-align:right">@User.Identity.Name<a href="~/Home/Logout"> => Logout</a></p>
+                    }
+                    <ul>
+                        <li><a class="icon solid fa-cog" href="left-sidebar.html"><span>Blog</span></a></li>
+                        <li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>Price list</span></a></li>
+                        <li><a class="icon solid fa-retweet" href="~/Home/SignUp"><span>Sign Up for the procedure</span></a></li>
+
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a class="icon solid fa-retweet" href="~/Home/Forum"><span>Forum</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a class="icon solid fa-retweet" href="~/Home/Login"><span>Forum</span></a></li>
+                            }
+                        </li>
+
+                        <li>
+                            @if (User.Identity.IsAuthenticated && User.Identity.Name == "admin")
+                            {
+                                <li><a class="icon solid fa-retweet" href="~/Home/UsersList"><span>User's List</span></a></li>
+                            }
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Content -->
+                    <div id="content" class="col-8 col-12-medium">
+
+                        <!-- Post -->
+                        <article class="box post">
+                            <header>
+                                <h2>
+                                    <a href="#">
+                                        О<strong> сыворотках</strong><br />
+                                    </a>
+                                </h2>
+                            </header>
+                            <a href="#" class="image featured"><img src="~/images/ретинол.jpg" alt="" /></a>
+                            <header>
+                                <h3><a href="#">Ретинол – удивительная Вселенная.</a></h3>
+                            </header>
+                            <p>
+
+                                Это одна из форм 🥕витамина А, которая способна воздействовать на клетки кожи человека.
+
+                                Зачем он нужен коже?
+
+                                Ретинол помогает клеткам работать 👌🏻в норме. Они справляются самостоятельно до ~25 лет. Затем обновление клеток замедляется и начинается процесс старения.
+
+                                Как работает ретинол?
+
+                            </p>
+                            <ul class="actions">
+                                <li><a href="#" class="button icon solid fa-file">Continue Reading</a></li>
+                            </ul>
+                        </article>
+
+                        <!-- Post -->
+                        <article class="box post">
+                            <header>
+                                <h2>
+                                    <a href="#">
+                                        Почему чистка кожи лица <strong>рекомендована 1 раз в месяц❔</strong>
+                                    </a>
+                                </h2>
+                            </header>
+                            <a href="#" class="image featured"><img src="~/images/пилинги.jpg" alt="" /></a>
+                            <h3>Пилинги❕Что это и зачем❔</h3>
+                            <p>
+                                На тему пилингов я писала 📑дипломную работу и тема эта очень обширная. Но я расскажу в двух словах, 🙌🏻для общего понимания.
+
+                                Пилинг – это метод частичного или полного ✖️удаления рогового слоя эпидермиса и воздействие на нижележащие слои кожи.
+
+                                Целью этого метода является 👌🏻коррекция эстетических недостатков кожи, её омоложение и обновление.
+
+                                Существует огромное разнообразие пилингов , но я ознакомлю Вас с самыми 🔝топовыми.
+                            </p>
+                            <ul class="actions">
+                                <li><a href="#" class="button icon solid fa-file">Continue Reading</a></li>
+                            </ul>
+                        </article>
+
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div id="sidebar" class="col-4 col-12-medium">
+
+                        <!-- Highlights -->
+                        <section>
+                            <ul class="divided">
+                                <li>
+
+                                    <!-- Highlight -->
+                                    <article class="box highlight">
+                                        <header>
+                                            <h3><a href="#">Изучаем состав</a></h3>
+                                        </header>
+                                        <a href="#" class="image left"><img src="~/images/состав.jpg" alt="" /></a>
+                                        <p>
+                                            Каких ингредиентов❌ стоит избегать в составах косметических средств❓
+
+                                            ❕Для начала расскажу о том, что состав организован в порядке от большего к меньшему по количеству вещества в средстве. И часто бывает так, что действительно полезные вещества/экстракты, мы видим в самом конце списка. А значит их настолько мало, что эффект от них минимальный.
+
+                                            ❕Что ещё важно
+                                            Смотрим👀 на срок хранения
+                                        </p>
+                                        <ul class="actions">
+                                            <li><a href="#" class="button icon solid fa-file">Learn More</a></li>
+                                        </ul>
+                                    </article>
+
+                                </li>
+                                <li>
+
+                                    <!-- Highlight -->
+                                    <article class="box highlight">
+                                        <header>
+                                            <h3><a href="#">Зимний уход ❄️🌬</h3>
+                                        </header>
+                                        <a href="#" class="image left"><img src="~/images/зимний_уход.jpg" alt="" /></a>
+                                        <p>
+                                            На состояние кожи в зимний период влияют не столько холод, мороз и ветер, сколько 🌡перепады температур. Именно в этот период мы часто наблюдаем контраст температур: прийдя с 🥶мороза в тёплый дом и т.д.
+                                            Так же, нельзя не упомянуть, что центральное отопление сильно пересушивает кожу.
+                                            Нарушается гидролипидный баланс. Наша задача его сохранять в этот период.
+                                        </p>
+                                        <ul class="actions">
+                                            <li><a href="#" class="button icon solid fa-file">Learn More</a></li>
+                                        </ul>
+                                    </article>
+
+                                </li>
+                            </ul>
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <header>
+                    <h2><strong>Get in touch:</strong></h2>
+                </header>
+                <!--<div class="col-6 col-12-medium">
+                    <section>
+                        <form method="post" action="#">
+                            <div class="row gtr-50">
+                                <div class="col-6 col-12-small">
+                                    <input name="name" placeholder="Name" type="text" />
+                                </div>
+                                <div class="col-6 col-12-small">
+                                    <input name="email" placeholder="Email" type="text" />
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <a href="#" class="form-button-submit button icon solid fa-envelope">Send Message</a>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>-->
+
+                <section>
+                    <div class="container">
+                        <ul class="icons">
+
+                            <li class="icon solid fa-home">
+                                <a href="https://www.google.com/maps/place/Фонтанская+дор.,+16%2F8,+Одесса,+Одесская+область,+65000/46.4325861,30.7429049,17z/data=!3m1!4b1!4m5!3m4!1s0x40c6339053fcd1b3:0x68c53c1b6560355a!8m2!3d46.4325861!4d30.7450936">
+                                    Fontanskaya doroga, 16/8<br />
+                                    Odessa, Ukraine<br />
+                                </a>
+                            </li>
+
+                            <li class="icon solid fa-phone">0982182605</li>
+
+                            <li class="icon brands fa-instagram">
+                                <a href="https://www.instagram.com/fatinia.cosmetolog_odessa/?hl=de">fatinia.cosmetolog_odessa</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <section>
+                <div id="copyright" class="container">
+                    <ul class="links">
+                        <li>&copy; Untitled. All rights reserved.</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

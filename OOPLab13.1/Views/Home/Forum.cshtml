@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css" />
+    <title>Success publishing</title>
+</head>
+<body>
+
+    <div>
+        <h1>Hello, @User.Identity.Name !</h1> </br>
+
+        @foreach (var comment in ViewBag.Comments)
+        {
+
+            @if (User.Identity.IsAuthenticated && User.Identity.Name == "admin")
+            {
+                <a asp-controller="Home" asp-action="HideComment" asp-route-id="@comment.Id">
+                    @if (comment.Hidden)
+                    {
+                        <span>Show</span>
+                    }
+                    else
+                    {
+                        <span>Hide</span>
+                    }
+                </a>
+
+
+                <a asp-action="EditComment" asp-route-id="@comment.Id">
+                    @if (comment != null)
+                    {
+                        <span>| Edit</span>
+                    }
+                </a>
+
+
+                <a asp-controller="Home" asp-action="DeleteComment" asp-route-id="@comment.Id">
+                    @if (comment != null)
+                    {
+                        <span>| Delete</span><br>
+                    }
+                </a>
+
+
+                <table>
+                    <tr>
+                        @comment.Login | @comment.CommentDate
+                        <h1> @comment.CommentText </h1>
+                    </tr>
+                </table>
+            }
+
+
+
+
+
+            @if (User.Identity.IsAuthenticated && User.Identity.Name != "admin")
+            {
+
+                @if (comment.Hidden)
+                {
+                    <table>
+                        <tr>
+                            @Html.Hidden("Login", @comment.Login as string)
+                            @Html.Hidden("CommentText", @comment.CommentText as string)
+                            @Html.Hidden("CommentDate", @comment.CommentDate as string)
+                        </tr>
+                    </table>
+                }
+                else
+                {
+                    <table>
+                        <tr>
+                            @comment.Login | @comment.CommentDate
+                            <h1> @comment.CommentText </h1>
+                        </tr>
+                    </table>
+                }
+            }
+
+
+        }
+        <p> @Html.ActionLink("Go home <= ", "Index")|@Html.ActionLink(" => Publish Comment!", "Publish")</p>
+    </div>
+</body>
+</html>
